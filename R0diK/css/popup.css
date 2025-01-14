@@ -1,0 +1,171 @@
+/*---------- 14. PROGRESS BARS ----------*/
+.progress-bars {
+    margin-bottom: 0;
+}
+
+.progress {
+    height: auto;
+    box-shadow: none;
+    margin-bottom: 0 !important;
+}
+
+.progress-bar {
+    background: #058d7c;
+    box-shadow: none !important;
+}
+
+.bg-primary .progress-bar {
+    background: #63c18b;
+}
+
+.progress-1 {
+    height: 32px;
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+}
+
+.progress-1:last-child {
+    margin-bottom: 0;
+}
+
+.progress-1 .progress-bar {
+    text-align: right;
+    padding-right: 12px;
+    line-height: 32px;
+    border-radius: 0;
+}
+
+.progress-1 .progress-bar span {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+.progress-2 {
+    height: auto;
+    background: none;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.progress-2 span {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.progress-2 .bar-holder {
+    height: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #058d7c;
+}
+
+.bg-primary .progress-2 .bar-holder {
+    border-color: #71c795;
+}
+
+/* General Table Styling */
+td {
+    padding: 7px !important;
+}
+
+/* Uptime Styling */
+#uptime {
+    color: #33ad0a;
+}
+
+/* Title Styling */
+#title {
+    display: block;
+    color: #03c7af;
+    line-height: 17px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Hiding elements */
+.none {
+    display: none;
+}
+
+/* Center Alignment */
+.center {
+    margin: auto;
+}
+
+/* Container Styling */
+#mCSB_1_container {
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+/* Icon Styling */
+#icon_clips {
+    fill: white;
+    width: 30px;
+    height: 50px;
+}
+
+#icon_clips:hover {
+    fill: #00c8aa;
+}
+
+/* Live Status Icon */
+#live-icon {
+    background-color: red;
+    color: white;
+    border-radius: 10%;
+    padding: 2px 5px 2px;
+    margin-right: 5px;
+}
+
+/* Viewers Count Styling */
+#viewersCount {
+    position: absolute;
+    margin: 5px;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+}
+
+/* Popup Background */
+body {
+    background: #212121;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 15px;
+}
+
+#popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#popup-content h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#popup-content p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+#popup-content a {
+    text-decoration: none;
+    color: #03c7af;
+    font-weight: bold;
+    margin-top: 10px;
+}

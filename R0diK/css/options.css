@@ -1,0 +1,254 @@
+body {
+	background-color: black;
+}
+
+.checkbox {
+	font-size : 1.5em;
+}
+	
+.checkbox input {
+	position : relative;
+}
+	
+.checkbox span {
+	padding-left : 10px;
+}
+
+label {
+	padding-bottom: 1px;
+	width: 100%;
+	font-size: 1em;
+}
+
+.etiquette {
+	font-size: 1em;
+	vertical-align: middle!important;
+	width: 40%;
+}
+
+.flex-container {
+	display: flex;
+	height: 80px;
+	align-items: baseline;
+}
+
+.flex-container div {
+	/*width: auto;*/
+	margin-right : 20px;
+}
+
+.flex-container .labelNotif {
+	width: 300px;
+}
+
+
+.song :hover {
+	color: #00c8aa;
+}
+	
+.disable, .disable:hover {
+	color: #b51515c7!important;
+	/* font-size: 1.5em; */
+	/* background-color: #d9534f; */
+	/* border : 1px solid #d9534f; */
+	/* background-image: repeating-linear-gradient(130deg, transparent, transparent 25px, rgba(255, 255, 255, 0.5) 25px, rgba(255,255,255,0.5) 50px); */
+}
+		
+.fas {
+	font-size: 1.5em!important;
+}	
+
+#titleOptions {
+	font-size: 1.5em;
+}
+
+.GridMaster {
+	display: grid;
+	grid-template-columns: 1fr 4fr 1fr;
+	grid-template-rows: 1fr 1fr 4fr 1fr;
+	margin-top: 50px;
+	z-index:  100;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width:  100%;
+}
+
+.logo-options {
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 1;
+	font-size: 1.5em;
+}
+
+.title-options {
+	margin-top: 10px;
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 2;
+}
+
+#form-options {
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 3;
+}
+
+#separator {
+	width: 50%;
+}
+
+#support {
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	font-style: italic;
+	text-align: right;
+}
+
+#support a {
+	color: #53aefb;
+}
+
+#support a:hover {
+	color: #f1b868;
+}
+
+/**
+*here is css code for switch
+*/
+
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+	vertical-align: middle;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	display:none;
+}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider {
+	background-color: #2196F3;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+
+#resubRSC{
+	color: black;
+}
+
+
+.threshold-bar {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.threshold-bar label {
+	margin-right: 10px;
+}
+
+.threshold-bar input[type="range"] {
+	width: 150px;
+	margin: 0 10px;
+}
+
+/* Applique le style aux boutons */
+button {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    font: inherit;
+    margin: 0;
+    overflow: visible;
+    text-transform: none;
+    font-family: inherit;
+    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    user-select: none;
+    color: #fff;  /* Couleur du texte */
+    background-color: #337ab7;  /* Bleu pour les boutons principaux */
+    border-color: #2e6da4;  /* Bleu foncé pour la bordure */
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+button.btn-warning {
+    background-color: #f0ad4e;  /* Jaune-orangé pour le bouton avertissement */
+    border-color: #eea236;  /* Jaune foncé pour la bordure */
+}
+
+button:hover {
+    background-color: #286090;  /* Bleu plus foncé au survol pour les boutons principaux */
+    border-color: #204d74;  /* Bordure plus foncée au survol */
+    color: #fff;  /* Empêche le texte de devenir noir lors du survol */
+}
+
+button.btn-warning:hover {
+    background-color: #ec971f;  /* Jaune-orangé plus foncé pour le bouton avertissement */
+    border-color: #d58512;  /* Bordure plus foncée pour le bouton avertissement */
+    color: #fff;  /* Assurez-vous que le texte reste blanc */
+}
