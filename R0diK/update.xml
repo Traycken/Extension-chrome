@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gupdate xmlns="http://www.google.com/update2/response" protocol="2.0">
     <app appid="doiogiplbcpfganlachhlnohenholoke">
-        <updatecheck codebase="https://github.com/Traycken/Extension-chrome/archive/refs/tags/update.zip" version="X.X.X" />
+        <updatecheck codebase="https://github.com/Traycken/Extension-chrome/archive/refs/tags/update.zip" version="2025.01.15" />
     </app>
 </gupdate>
