@@ -67,3 +67,45 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+  
+window.onload = applyStarShadows;
+window.addEventListener('resize', () => {applyStarShadows()});
+
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = `${e.pageX + 32 / 2}px`;
+  cursor.style.top = `${e.pageY + 32 / 2}px`;
+});
+
+document.addEventListener('mouseleave', () => {cursor.style.display = 'none'});
+document.addEventListener('mouseenter', () => {cursor.style.display = 'block'});
+
+
+function generateRandomBoxShadow(numShadows) {
+    let shadows = '';
+    for (let i = 0; i < numShadows; i++) {
+        let x = Math.floor(Math.random() * (window.innerWidth));
+        let y = Math.floor(Math.random() * (window.innerHeight*3));
+        let color = `#${Math.floor(Math.random() * 16).toString(16)}${Math.floor(Math.random() * 16).toString(16)}${Math.floor(Math.random() * 16).toString(16)}`;
+        shadows += `${x}px ${y}px ${color}, `;
+    }
+    return shadows.slice(0, -2);
+}
+
+function applyStarShadows() {
+    const coreLimit = Math.floor(1000 * (navigator.hardwareConcurrency / 8));
+    const memoryLimit = Math.floor(1000 * (navigator.deviceMemory / 8));
+    const starstotals = Math.min(Math.floor(window.innerWidth + window.innerHeight), Math.min(coreLimit, memoryLimit, 4500));
+
+    const starElements = document.querySelectorAll('#stars, #stars2, #stars3');
+    
+    const starsCount = Math.floor(starstotals * 0.4);
+    const stars2Count = Math.floor(starstotals * 0.35);
+    const stars3Count = Math.floor(starstotals * 0.25);
+
+    starElements[0].style.boxShadow = generateRandomBoxShadow(starsCount);
+    starElements[1].style.boxShadow = generateRandomBoxShadow(stars2Count);
+    starElements[2].style.boxShadow = generateRandomBoxShadow(stars3Count);
+}
+
+window.onload = applyStarShadows;

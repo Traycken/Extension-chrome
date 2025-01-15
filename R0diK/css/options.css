@@ -252,3 +252,18 @@ button.btn-warning:hover {
     border-color: #d58512;  /* Bordure plus foncée pour le bouton avertissement */
     color: #fff;  /* Assurez-vous que le texte reste blanc */
 }
+
+
+
+#cursor {
+	position : fixed;
+	width: 28px;      /* Taille de l'image (ajustez selon la taille de l'image) */
+	height: 28px;     /* Taille de l'image (ajustez selon la taille de l'image) */
+	background-image: url('../images/icon28.png');
+	background-size: cover; /* Assure que l'image couvre toute la taille du div */
+	pointer-events: none; /* Pour que l'image ne bloque pas les autres interactions avec la souris */
+	display: none;
+	z-index: 9999;  /* Ajoute un z-index élevé pour le placer au premier plan */
+}
+
+

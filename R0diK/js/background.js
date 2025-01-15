@@ -3,26 +3,15 @@ let notifLC, savedVolume, notifsoundLive;
 
 // Vérifie si les valeurs existent déjà dans chrome.storage.local
 chrome.storage.local.get(['notifLC', 'savedVolume', 'notifsoundLive'], function(result) {
-  // Si les valeurs sont absentes, on les définit
-  if (result.notifLC === undefined) {
-    chrome.storage.local.set({ notifLC: true });
-    console.log("set notifLC: true");
-  }
-  if (result.savedVolume === undefined) {
-    chrome.storage.local.set({ savedVolume: 1 });
-    console.log("set savedVolume: 1");
-  }
-  if (result.notifsoundLive === undefined) {
-    chrome.storage.local.set({ notifsoundLive: "../mp3/sound.mp3" });
-    console.log('set notifsoundLive: "../mp3/sound.mp3"');
-  }
 
-  // Initialisation des variables globales avec les valeurs récupérées
+  if (result.notifLC === undefined) {chrome.storage.local.set({ notifLC: true })}
+  if (result.savedVolume === undefined) {chrome.storage.local.set({ savedVolume: 1 })}
+  if (result.notifsoundLive === undefined) {chrome.storage.local.set({ notifsoundLive: "../mp3/sound.mp3" })}
+
   notifLC = result.notifLC;
   savedVolume = result.savedVolume;
   notifsoundLive = result.notifsoundLive;
 
-  // Appelle une fonction ou exécute du code après que les valeurs soient disponibles
   onStorageDataReady();
 });
 
@@ -43,20 +32,18 @@ function onStorageDataReady() {
     });
   }
 
-  isR0dikLive = false;
-
   // Fonction pour changer l'icône de l'extension
   function changeIcon(iconName) {
     chrome.action.setIcon({ path: iconName });
   }
 
   // Afficher une notification quand R0diK est en live
-  function showNotification() {
+  function showNotification(gameName) {
     chrome.notifications.create('', {
       type: 'basic',
       iconUrl: chrome.runtime.getURL('../images/icon70.png'),
-      title: 'R0diK est en live ! 🎮',
-      message: 'Cliquez pour en savoir plus.',
+      title: 'R0diK - Je suis en live ! 🎮',
+      message: `Je suis en live sur :\n${gameName}`,
       priority: 2
     });
   }
@@ -65,7 +52,9 @@ function onStorageDataReady() {
   chrome.notifications.onClicked.addListener(function() {
     chrome.tabs.create({ url: 'https://www.twitch.tv/r0dik' });
   });
-
+  
+  let isR0dikLive = false;
+  let livetime = 0;
   // Fonction pour récupérer les données JSON toutes les 5 secondes
   function checkTwitchStatus() {
     try {
@@ -88,15 +77,17 @@ function onStorageDataReady() {
             if (r0dik.R0diK.live) {
               if (!isR0dikLive) {
                 isR0dikLive = true;
-                showNotification();
+                showNotification(r0dik.R0diK.game_name);
                 playSound(notifsoundLive, savedVolume);
                 changeIcon('../images/icon28Live.png');
               }
+              livetime = 4;
             } else {
               if (isR0dikLive) {
                 isR0dikLive = false;
                 changeIcon('../images/icon28.png');
               }
+              livetime = 0;
             }
           }
         })
@@ -114,23 +105,15 @@ function onStorageDataReady() {
     }
   }
 
-  // Écouter l'alarme
+  chrome.alarms.create("checkTwitchStatus", {periodInMinutes: (1 + livetime)});
   chrome.alarms.onAlarm.addListener((alarm) => {
     if (alarm.name === "checkTwitchStatus") {
         if (notifLC) {checkTwitchStatus()}
     }
   });
-
-  // Créer une alarme pour vérifier l'état du Twitch toutes les 45 secondes
-  chrome.alarms.create("checkTwitchStatus", {
-    periodInMinutes: 45/60
-  });
-
-  // Lancer la première vérification
   checkTwitchStatus();
 
-  chrome.alarms.create('keepAlive', { periodInMinutes: 25/60 });
-
+  chrome.alarms.create('keepAlive', { periodInMinutes: (25/60) });
   chrome.alarms.onAlarm.addListener(function(alarm) {
       if (alarm.name === 'keepAlive') {
         console.log('keepAlive');
