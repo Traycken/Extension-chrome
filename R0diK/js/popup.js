@@ -106,3 +106,25 @@ const sounds = [
 const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
 const sound = new Audio(randomSound);
 document.addEventListener('click', (event) => {if (!event.target.closest('a, img, #game_link, #social-media, #cursor, #viewersCount')) {sound.play()}});
+
+
+window.addEventListener('load', function() {
+  // Charger le fichier update.xml
+  fetch('../update.xml')
+      .then(response => response.text())
+      .then(data => {
+          // Parser le XML et extraire la version
+          var parser = new DOMParser();
+          var xmlDoc = parser.parseFromString(data, "application/xml");
+          var version = xmlDoc.getElementsByTagName("updatecheck")[0].getAttribute("version");
+
+          // Mettre à jour l'élément version-text
+          var versionElement = document.getElementById('version-text');
+          if (versionElement) {
+              versionElement.textContent = version;
+          }
+      })
+      .catch(error => {
+          console.error("Erreur lors du chargement du fichier update.xml : ", error);
+      });
+});

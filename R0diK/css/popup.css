@@ -111,6 +111,17 @@ top: 70px;
 transform: translateX(-50%);
 }
 
+#version-text {
+    position: fixed;
+    bottom: 0px;
+    right: 5px;
+    font-size: 7px;
+    color: #fff;
+    opacity: 0.5;
+    font-family: Arial, sans-serif;
+}
+
+
 #cursor {
 	position : fixed;
 	width: 28px;      /* Taille de l'image (ajustez selon la taille de l'image) */
