@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "R0diK",
   "description": "Affiche si R0diK est en live sur Twitch.",
-  "version": "1.0",
+  "version": "2025.01.16",
   "host_permissions": ["<all_urls>"],
   "permissions": [
 		"storage",
